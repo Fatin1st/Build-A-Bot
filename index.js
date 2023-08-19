@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to Build-A-Bot");
 });
 
-app.post("/chat/:apiKey/:behaviour/:message", async (req, res) => {
+app.get("/chat/:apiKey/:behaviour/:message", async (req, res) => {
   const userMessage = req.params.message;
   const behaviour = req.params.behaviour;
   const apiKey = req.params.apiKey;
