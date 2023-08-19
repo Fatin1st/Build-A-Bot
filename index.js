@@ -7,14 +7,14 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("Welcome to Build-A-Bot")
+  res.send("Welcome to Build-A-Bot");
 });
 
-app.get("/chat/:behaviour/:message", async (req, res) => {
-    const userMessage = req.params.message;
-    const behaviour = req.params.behaviour;
-    const apiKey = req.query;
-    
+app.post("/chat/:apiKey/:behaviour/:message", async (req, res) => {
+  const userMessage = req.params.message;
+  const behaviour = req.params.behaviour;
+  const apiKey = req.params.apiKey;
+
   const conversation = [
     { role: "system", content: behaviour },
     { role: "user", content: userMessage },
@@ -44,6 +44,5 @@ app.get("/chat/:behaviour/:message", async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 });
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
