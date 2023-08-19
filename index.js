@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Build-A-Bot");
+  res.send("Welcome to BuildMyBot");
 });
 
 app.get("/chat/:apiKey/:behaviour/:message", async (req, res) => {
